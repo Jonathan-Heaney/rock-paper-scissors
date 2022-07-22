@@ -22,13 +22,16 @@ function playRound(playerChoice, computerChoice) {
   if (playerChoice === "rock") {
     switch (computerChoice) {
       case "rock":
-        result = "It's a tie!";
+        console.log("It's a tie!");
+        result = "tie";
         break;
       case "paper":
-        result = "You lose! Paper beats Rock";
+        console.log("You lose! Paper beats Rock");
+        result = "computer";
         break;
       case "scissors":
-        result = "You win! Rock beats Scissors";
+        console.log("You win! Rock beats Scissors");
+        result = "player";
         break;
       default:
         console.log("Something went wrong");
@@ -36,13 +39,16 @@ function playRound(playerChoice, computerChoice) {
   } else if (playerChoice === "paper") {
     switch (computerChoice) {
       case "rock":
-        result = "You win! Paper beats Rock";
+        console.log("You win! Paper beats Rock");
+        result = "player";
         break;
       case "paper":
-        result = "It's a tie!";
+        console.log("It's a tie!");
+        result = "tie";
         break;
       case "scissors":
-        result = "You lose! Scissors beat Paper";
+        console.log("You lose! Scissors beat Paper");
+        result = "computer";
         break;
       default:
         console.log("Something went wrong");
@@ -50,13 +56,16 @@ function playRound(playerChoice, computerChoice) {
   } else if (playerChoice === "scissors") {
     switch (computerChoice) {
       case "rock":
-        result = "You lose! Rock beats Scissors";
+        console.log("You lose! Rock beats Scissors");
+        result = "computer";
         break;
       case "paper":
-        result = "You win! Scissors beat Paper";
+        console.log("You win! Scissors beat Paper");
+        result = "player";
         break;
       case "scissors":
-        result = "It's a tie!";
+        console.log("It's a tie!");
+        result = "tie";
         break;
       default:
         console.log("Something went wrong");
@@ -65,10 +74,10 @@ function playRound(playerChoice, computerChoice) {
   return result;
 }
 
-const playerChoice = getPlayerChoice();
-const computerChoice = getComputerChoice();
-console.log(
-  playRound(playerChoice, computerChoice),
-  playerChoice,
-  computerChoice
-);
+// const playerChoice = getPlayerChoice();
+// const computerChoice = getComputerChoice();
+// console.log(
+//   playRound(playerChoice, computerChoice),
+//   playerChoice,
+//   computerChoice
+// );
