@@ -17,8 +17,8 @@ function getPlayerChoice() {
   return playerChoice;
 }
 
+let result;
 function playRound(playerChoice, computerChoice) {
-  let result;
   if (playerChoice === "rock") {
     switch (computerChoice) {
       case "rock":
@@ -81,3 +81,31 @@ function playRound(playerChoice, computerChoice) {
 //   playerChoice,
 //   computerChoice
 // );
+
+let playerWins = 0;
+let computerWins = 0;
+function winner() {
+  if (computerWins > playerWins) {
+    console.log(`Computer wins, ${computerWins} to ${playerWins}!`);
+  } else if (computerWins < playerWins) {
+    console.log(`You win, ${playerWins} to ${computerWins}!`);
+  } else {
+    console.log(`Tie, ${computerWins} to ${playerWins}`);
+  }
+}
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+    playRound(getPlayerChoice(), getComputerChoice());
+    if (result === "player") {
+      playerWins++;
+    } else if (result === "computer") {
+      computerWins++;
+    }
+  }
+  winner();
+}
+
+game();
+console.log(playerWins);
+console.log(computerWins);
