@@ -11,12 +11,6 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-// function getPlayerChoice() {
-//   let playerChoice = prompt("Rock, paper, or scissors?");
-//   playerChoice = playerChoice.toLowerCase();
-//   return playerChoice;
-// }
-
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -28,28 +22,22 @@ let playerWins = 0;
 let computerWins = 0;
 let result;
 function playRound(playerChoice, computerChoice) {
-  while (playerWins < 5 && computerWins < 5) {
+  if (playerWins < 5 && computerWins < 5) {
     if (playerChoice === "rock") {
       switch (computerChoice) {
         case "rock":
-          const rockTie = document.createElement("p");
+          const rockTie = document.querySelector("#results");
           rockTie.textContent = "It's a tie!";
-          results.appendChild(rockTie);
-          result = "tie";
           break;
         case "paper":
-          const rockLoss = document.createElement("p");
+          const rockLoss = document.querySelector("#results");
           rockLoss.textContent = "You lose! Paper beats Rock";
-          results.appendChild(rockLoss);
-          result = "computer";
           computerWins++;
           break;
         case "scissors":
-          const rockWin = document.createElement("p");
+          const rockWin = document.querySelector("#results");
           rockWin.textContent = "You win! Rock beats Scissors";
-          results.appendChild(rockWin);
           playerWins++;
-          result = "player";
           break;
         default:
           console.log("Something went wrong");
@@ -57,24 +45,18 @@ function playRound(playerChoice, computerChoice) {
     } else if (playerChoice === "paper") {
       switch (computerChoice) {
         case "rock":
-          const paperWin = document.createElement("p");
+          const paperWin = document.querySelector("#results");
           paperWin.textContent = "You win! Paper beats Rock";
-          results.appendChild(paperWin);
           playerWins++;
-          result = "player";
           break;
         case "paper":
-          const paperTie = document.createElement("p");
+          const paperTie = document.querySelector("#results");
           paperTie.textContent = "It's a tie!";
-          results.appendChild(paperTie);
-          result = "tie";
           break;
         case "scissors":
-          const paperLoss = document.createElement("p");
+          const paperLoss = document.querySelector("#results");
           paperLoss.textContent = "You lose! Scissors beat Paper";
-          results.appendChild(paperLoss);
           computerWins++;
-          result = "computer";
           break;
         default:
           console.log("Something went wrong");
@@ -82,59 +64,32 @@ function playRound(playerChoice, computerChoice) {
     } else if (playerChoice === "scissors") {
       switch (computerChoice) {
         case "rock":
-          const scissorsLoss = document.createElement("p");
+          const scissorsLoss = document.querySelector("#results");
           scissorsLoss.textContent = "You lose! Rock beats Scissors";
-          results.appendChild(scissorsLoss);
           computerWins++;
-          result = "computer";
           break;
         case "paper":
-          const scissorsWin = document.createElement("p");
+          const scissorsWin = document.querySelector("#results");
           scissorsWin.textContent = "You win! Scissors beat Paper";
-          results.appendChild(scissorsWin);
           playerWins++;
-          result = "player";
           break;
         case "scissors":
-          const scissorsTie = document.createElement("p");
+          const scissorsTie = document.querySelector("#results");
           scissorsTie.textContent = "It's a tie!";
-          results.appendChild(scissorsTie);
-          result = "tie";
           break;
         default:
           console.log("Something went wrong");
       }
     }
     checkForWinner();
-    checkScore();
-    return result;
-  }
-}
-
-function winner() {
-  if (computerWins > playerWins) {
-    console.log(`Computer wins, ${computerWins} to ${playerWins}!`);
-  } else if (computerWins < playerWins) {
-    console.log(`You win, ${playerWins} to ${computerWins}!`);
-  } else {
-    console.log(`Tie, ${computerWins} to ${playerWins}`);
-  }
-}
-
-function game() {
-  for (let i = 0; i < 5; i++) {
-    playRound(getPlayerChoice(), getComputerChoice());
-    if (result === "player") {
-      playerWins++;
-    } else if (result === "computer") {
-      computerWins++;
+    if (playerWins < 5 && computerWins < 5) {
+      checkScore();
     }
   }
-  winner();
 }
 
 function checkScore() {
-  const scoreMessage = document.createElement("p");
+  const scoreMessage = document.querySelector("#score");
   if (playerWins < 5 && computerWins < 5) {
     if (playerWins > computerWins) {
       scoreMessage.textContent = `You lead, ${playerWins} to ${computerWins}.`;
@@ -143,20 +98,14 @@ function checkScore() {
     } else {
       scoreMessage.textContent = `Game is tied, ${playerWins} to ${computerWins}.`;
     }
-    results.appendChild(scoreMessage);
   }
 }
 
 function checkForWinner() {
-  const winnerMessage = document.createElement("p");
+  const winnerMessage = document.querySelector(".winner");
   if (playerWins === 5) {
     winnerMessage.textContent = `YOU WIN, ${playerWins} to ${computerWins}!`;
   } else if (computerWins === 5) {
     winnerMessage.textContent = `Computer wins, ${computerWins} to ${playerWins}!`;
   }
-  results.appendChild(winnerMessage);
 }
-
-// game();
-// console.log(playerWins);
-// console.log(computerWins);
