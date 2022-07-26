@@ -74,14 +74,6 @@ function playRound(playerChoice, computerChoice) {
   return result;
 }
 
-// const playerChoice = getPlayerChoice();
-// const computerChoice = getComputerChoice();
-// console.log(
-//   playRound(playerChoice, computerChoice),
-//   playerChoice,
-//   computerChoice
-// );
-
 let playerWins = 0;
 let computerWins = 0;
 function winner() {
