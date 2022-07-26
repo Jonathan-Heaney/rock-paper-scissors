@@ -29,15 +29,21 @@ function playRound(playerChoice, computerChoice) {
   if (playerChoice === "rock") {
     switch (computerChoice) {
       case "rock":
-        console.log("It's a tie!");
+        const rockTie = document.createElement("p");
+        rockTie.textContent = "It's a tie!";
+        results.appendChild(rockTie);
         result = "tie";
         break;
       case "paper":
-        console.log("You lose! Paper beats Rock");
+        const rockLoss = document.createElement("p");
+        rockLoss.textContent = "You lose! Paper beats Rock";
+        results.appendChild(rockLoss);
         result = "computer";
         break;
       case "scissors":
-        console.log("You win! Rock beats Scissors");
+        const rockWin = document.createElement("p");
+        rockWin.textContent = "You win! Rock beats Scissors";
+        results.appendChild(rockWin);
         result = "player";
         break;
       default:
@@ -46,15 +52,21 @@ function playRound(playerChoice, computerChoice) {
   } else if (playerChoice === "paper") {
     switch (computerChoice) {
       case "rock":
-        console.log("You win! Paper beats Rock");
+        const paperWin = document.createElement("p");
+        paperWin.textContent = "You win! Paper beats Rock";
+        results.appendChild(paperWin);
         result = "player";
         break;
       case "paper":
-        console.log("It's a tie!");
+        const paperTie = document.createElement("p");
+        paperTie.textContent = "It's a tie!";
+        results.appendChild(paperTie);
         result = "tie";
         break;
       case "scissors":
-        console.log("You lose! Scissors beat Paper");
+        const paperLoss = document.createElement("p");
+        paperLoss.textContent = "You lose! Scissors beat Paper";
+        results.appendChild(paperLoss);
         result = "computer";
         break;
       default:
@@ -63,21 +75,27 @@ function playRound(playerChoice, computerChoice) {
   } else if (playerChoice === "scissors") {
     switch (computerChoice) {
       case "rock":
-        console.log("You lose! Rock beats Scissors");
+        const scissorsLoss = document.createElement("p");
+        scissorsLoss.textContent = "You lose! Rock beats Scissors";
+        results.appendChild(scissorsLoss);
         result = "computer";
         break;
       case "paper":
-        console.log("You win! Scissors beat Paper");
+        const scissorsWin = document.createElement("p");
+        scissorsWin.textContent = "You win! Scissors beat Paper";
+        results.appendChild(scissorsWin);
         result = "player";
         break;
       case "scissors":
-        console.log("It's a tie!");
+        const scissorsTie = document.createElement("p");
+        scissorsTie.textContent = "It's a tie!";
+        results.appendChild(scissorsTie);
         result = "tie";
         break;
       default:
         console.log("Something went wrong");
     }
-  } else getPlayerChoice();
+  }
   return result;
 }
 
