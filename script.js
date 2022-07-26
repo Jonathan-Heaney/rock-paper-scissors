@@ -24,6 +24,8 @@ buttons.forEach((button) => {
   });
 });
 
+let playerWins = 0;
+let computerWins = 0;
 let result;
 function playRound(playerChoice, computerChoice) {
   if (playerChoice === "rock") {
@@ -39,11 +41,13 @@ function playRound(playerChoice, computerChoice) {
         rockLoss.textContent = "You lose! Paper beats Rock";
         results.appendChild(rockLoss);
         result = "computer";
+        computerWins++;
         break;
       case "scissors":
         const rockWin = document.createElement("p");
         rockWin.textContent = "You win! Rock beats Scissors";
         results.appendChild(rockWin);
+        playerWins++;
         result = "player";
         break;
       default:
@@ -55,6 +59,7 @@ function playRound(playerChoice, computerChoice) {
         const paperWin = document.createElement("p");
         paperWin.textContent = "You win! Paper beats Rock";
         results.appendChild(paperWin);
+        playerWins++;
         result = "player";
         break;
       case "paper":
@@ -67,6 +72,7 @@ function playRound(playerChoice, computerChoice) {
         const paperLoss = document.createElement("p");
         paperLoss.textContent = "You lose! Scissors beat Paper";
         results.appendChild(paperLoss);
+        computerWins++;
         result = "computer";
         break;
       default:
@@ -78,12 +84,14 @@ function playRound(playerChoice, computerChoice) {
         const scissorsLoss = document.createElement("p");
         scissorsLoss.textContent = "You lose! Rock beats Scissors";
         results.appendChild(scissorsLoss);
+        computerWins++;
         result = "computer";
         break;
       case "paper":
         const scissorsWin = document.createElement("p");
         scissorsWin.textContent = "You win! Scissors beat Paper";
         results.appendChild(scissorsWin);
+        playerWins++;
         result = "player";
         break;
       case "scissors":
@@ -96,11 +104,10 @@ function playRound(playerChoice, computerChoice) {
         console.log("Something went wrong");
     }
   }
+  checkScore();
   return result;
 }
 
-let playerWins = 0;
-let computerWins = 0;
 function winner() {
   if (computerWins > playerWins) {
     console.log(`Computer wins, ${computerWins} to ${playerWins}!`);
@@ -121,6 +128,18 @@ function game() {
     }
   }
   winner();
+}
+
+function checkScore() {
+  const scoreMessage = document.createElement("p");
+  if (playerWins > computerWins) {
+    scoreMessage.textContent = `Player leads, ${playerWins} to ${computerWins}.`;
+  } else if (computerWins > playerWins) {
+    scoreMessage.textContent = `Computer leads, ${computerWins} to ${playerWins}.`;
+  } else {
+    scoreMessage.textContent = `Game is tied, ${playerWins} to ${computerWins}.`;
+  }
+  results.appendChild(scoreMessage);
 }
 
 // game();
