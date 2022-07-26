@@ -120,7 +120,10 @@ function checkForWinner() {
     winnerMessage.style.fontSize = "32px";
     winnerMessage.style.fontStyle = "normal";
     const jonah = document.createElement("IMG");
-    jonah.setAttribute("src", "/img/jonah-hill.gif");
+    jonah.setAttribute(
+      "src",
+      "https://c.tenor.com/Wesoy9DkqfkAAAAM/jonah-hill.gif"
+    );
     jonah.setAttribute("width", "304");
     jonah.setAttribute("height", "auto");
     jonah.setAttribute("margin", "200px");
@@ -133,7 +136,10 @@ function checkForWinner() {
     winnerMessage.style.fontSize = "32px";
     winnerMessage.style.fontStyle = "normal";
     const dawson = document.createElement("IMG");
-    dawson.setAttribute("src", "/img/dawson.gif");
+    dawson.setAttribute(
+      "src",
+      "https://c.tenor.com/HJPnaSalhJMAAAAC/dawsons-creek-james-van-der-beek.gif"
+    );
     dawson.setAttribute("width", "304");
     dawson.setAttribute("height", "auto");
     dawson.setAttribute("margin", "200px");
